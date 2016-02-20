@@ -42,6 +42,7 @@
     "url": "https://github.com/math-io/sum-series/issues"
   },
   "dependencies": {
+    "detect-generator-support": "^1.0.2",
     "math-abs": "^1.0.2",
     "validate.io-number-primitive": "^1.0.0",
     "validate.io-object": "^1.0.4",
@@ -50,7 +51,6 @@
   "devDependencies": {
     "browserify": "12.x.x",
     "codecov": "1.x.x",
-    "detect-generator-support": "^1.0.2",
     "istanbul": "^0.4.1",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
