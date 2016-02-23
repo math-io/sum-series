@@ -171,7 +171,7 @@ $ make view-browser-tests
 Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 
 
-[npm-image]: http://img.shields.io/npm/v/math-evalrational.svg
+[npm-image]: http://img.shields.io/npm/v/math-sum-series.svg
 [npm-url]: https://npmjs.org/package/math-sum-series
 
 [build-image]: http://img.shields.io/travis/math-io/sum-series/master.svg
