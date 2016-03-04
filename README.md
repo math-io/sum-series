@@ -58,7 +58,7 @@ function geometricSeriesClosure( x ) {
 By default, the initial value of the sum is `0`. To choose a different one, use the `init` parameter.
 
 ```javascript
-var out = continued_fraction( geometricSeriesGenerator( 0.5 ), 1 );
+var out = sumSeries( geometricSeriesGenerator( 0.5 ), 1 );
 // returns 3
 ```
 
