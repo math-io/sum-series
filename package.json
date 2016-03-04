@@ -42,11 +42,9 @@
     "url": "https://github.com/math-io/sum-series/issues"
   },
   "dependencies": {
+    "const-eps-float64": "^1.0.0",
     "detect-generator-support": "^1.0.2",
-    "math-abs": "^1.0.2",
-    "validate.io-number-primitive": "^1.0.0",
-    "validate.io-object": "^1.0.4",
-    "validate.io-positive-integer": "^1.0.0"
+    "math-abs": "^1.0.2"
   },
   "devDependencies": {
     "browserify": "12.x.x",
@@ -56,6 +54,7 @@
     "jshint-stylish": "2.x.x",
     "math-abs": "^1.0.2",
     "math-float64-log1p": "^1.0.1",
+    "proxyquire": "^1.7.4",
     "tap-spec": "4.x.x",
     "tape": "4.x.x",
     "testling": "1.x.x"
