@@ -11,6 +11,7 @@ var sumSeriesBasic = proxyquire( './../lib/', {
 	'detect-generator-support': function(){ return false; }
 });
 
+
 // VARIABLES //
 
 var hasGeneratorsSupport = require( 'detect-generator-support' )();
@@ -69,7 +70,7 @@ tape( 'the function calculates the sum of an infinite series provided by a closu
 
 tape( 'the function calculates the sum of an infinite series with a specified initial value', function test( t ) {
 	// log1p( 0.5 ) + 2:
-	var actual = sumSeries( closure( 0.5 ), 2 );
+	var actual = sumSeries( closure( 0.5 ), { 'init' : 2 } );
 	var expected = log1p( 0.5 ) + 2;
 
 	t.ok( abs( actual - expected ) < 1e-14, 'returned result is within tolerance. actual: ' + actual + '; expected: ' + expected + '.' );
@@ -88,7 +89,7 @@ tape( 'the function calculates the sum of an infinite series with a specified in
 
 tape( 'the function calculates the sum of an infinite series with a specified initial value (when generators are not supported)', function test( t ) {
 	// log1p( 0.5 ) + 2:
-	var actual = sumSeriesBasic( closure( 0.5 ), 2 );
+	var actual = sumSeriesBasic( closure( 0.5 ), { 'init' : 2 } );
 	var expected = log1p( 0.5 ) + 2;
 
 	t.ok( abs( actual - expected ) < 1e-14, 'returned result is within tolerance. actual: ' + actual + '; expected: ' + expected + '.' );
@@ -101,6 +102,36 @@ tape( 'the function calculates the sum of an infinite series with a specified in
 		return function() {
 			m_prod *= m_mult;
 			return ( m_prod / ++k );
+		};
+	}
+});
+
+tape( 'the function calculates the sum of a user-defined number of terms of the series', function test( t ) {
+	var actual = sumSeries( closure( 0.5 ), { 'max_terms' : 3 } );
+	var expected = 6;
+
+	t.equal( actual, expected, 'returned result is equal to expected value. actual: ' + actual + '; expected: ' + expected + '.' );
+	t.end();
+
+	function closure() {
+		var k = 1;
+		return function() {
+			return k++;
+		};
+	}
+});
+
+tape( 'the function calculates the sum of a user-defined number of terms of the series (when generators are not supported)', function test( t ) {
+	var actual = sumSeriesBasic( closure( 0.5 ), { 'max_terms' : 3 } );
+	var expected = 6;
+
+	t.equal( actual, expected, 'returned result is equal to expected value. actual: ' + actual + '; expected: ' + expected + '.' );
+	t.end();
+
+	function closure() {
+		var k = 1;
+		return function() {
+			return k++;
 		};
 	}
 });
