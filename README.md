@@ -18,7 +18,7 @@ $ npm install math-sum-series
 var sumSeries = require( 'math-sum-series' );
 ```
 
-#### sumSeries( generator[, init ] )
+#### sumSeries( generator[, options ] )
 
 Computes the sum of the series given by the supplied `generator` argument. `generator` can be either an ES6 [Generator object][es6-generator] or a function which
 returns successive elements of the series at each invocation.
@@ -56,8 +56,8 @@ function geometricSeriesClosure( x ) {
 ```
 
 The `function` accepts the following `options`:
-*	__max_terms__: integer denoting the maximum number of terms to be summed. Default: `1000`.
-*	__tolerance__: number primitive specifying the tolerance used to assess convergence. Default: `1e-16`.
+*	__max_terms__: integer denoting the maximum number of terms to be summed. Default: `1000000`.
+*	__tolerance__: number primitive specifying the tolerance used to assess convergence. Default: `2.22e-16`.
 *	__init__: number primitive specifying the initial value of the returned sum. Default: `0`.
 
 By default, the initial value of the sum is `0`. To choose a different one, use the `init` option.
