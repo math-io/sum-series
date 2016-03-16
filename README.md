@@ -55,11 +55,36 @@ function geometricSeriesClosure( x ) {
 }
 ```
 
-By default, the initial value of the sum is `0`. To choose a different one, use the `init` parameter.
+The `function` accepts the following `options`:
+*	__max_terms__: integer denoting the maximum number of terms to be summed. Default: `1000`.
+*	__tolerance__: number primitive specifying the tolerance used to assess convergence. Default: `1e-16`.
+*	__init__: number primitive specifying the initial value of the returned sum. Default: `0`.
+
+By default, the initial value of the sum is `0`. To choose a different one, use the `init` option.
 
 ```javascript
-var out = sumSeries( geometricSeriesGenerator( 0.5 ), 1 );
+var out = continued_fraction( geometricSeriesGenerator( 0.5 ), {
+	'init': 1
+});
 // returns 3
+```
+
+To change the maximum number of terms to be summed, set the `max_terms` option.
+
+```javascript
+var out = continued_fraction( geometricSeriesGenerator( 0.5 ), {
+	'max_terms': 10
+});
+// returns ~1.998 (infinite sum is 2)
+```
+
+The default tolerance of `1e-16` used to assess convergence can be changed via the `tolerance` option.
+
+```javascript
+var out = continued_fraction( geometricSeriesGenerator( 0.5 ), {
+	'tolerance': 1e-3
+});
+// returns ~1.998
 ```
 
 ## Examples
